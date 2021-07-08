@@ -18,12 +18,15 @@
       <div class="form-group">
         <h3>Shortened URL:</h3>
         <br>
-        <a href="{{originalUrl}}" class="">{{randomUrl}}</a>
+        <a href="{{originalUrl}}" class="" id="randomUrl">{{randomUrl}}</a>
       </div>
       {{/if}}
       
       <button type="submit" class="btn btn-primary">Shorten</button>
-      <a href="/" class="btn btn-primary">back</a>
+      <a href="/" class="btn btn-outline-primary">back</a>
+      {{#if randomUrl}}
+      <button type="button" class="btn btn-success" id="copyBtn">Copy</button>
+      {{/if}}
     </form>
   </div>
 </div>
