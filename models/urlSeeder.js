@@ -3,7 +3,7 @@ const db = require('../config/mongoose')
 
 // basic information
 const shortUrlLength = 5
-const basicUrl = 'https://url-shortener.herokuapp.com/'
+const basicUrl = 'https://agile-hollows-67457.herokuapp.com/'
 
 // all letters & numbers
 const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
