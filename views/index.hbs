@@ -1,32 +1,38 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    <h5 class="card-title">URL Shortener</h5>
-  </div>
+<div class="row mt-5 justify-content-center">
+  <div class="card" style="width: 25rem;">
+    <div class="card-header">
+      <h5 class="card-title text-center mb-0">URL Shortener</h5>
+    </div>
   
-  <div class="card-body">
-    <span>
-      <i class="fas fa-link"></i>
-    </span>
-
-    <form action="/" method="POST">
-      
-      <div class="form-group">
-        <input type="url" class="form-control" name="originalUrl" id="originalUrl" placeholder="Input URL here" value="{{originalUrl}}">
-      </div>
-
-      {{#if randomUrl}}
-      <div class="form-group">
-        <h3>Shortened URL:</h3>
-        <br>
-        <a href="{{originalUrl}}" class="" id="randomUrl">{{randomUrl}}</a>
-      </div>
-      {{/if}}
-      
-      <button type="submit" class="btn btn-primary">Shorten</button>
-      <a href="/" class="btn btn-outline-primary">back</a>
-      {{#if randomUrl}}
-      <button type="button" class="btn btn-success" id="copyBtn">Copy</button>
-      {{/if}}
-    </form>
+    <div class="card-body">
+      <span class="row mb-3 justify-content-center" id="link-img">
+        <i class="fas fa-link" ></i>
+      </span>
+  
+      <form action="/" method="POST">
+  
+        <div class="form-group">
+          <input type="url" class="form-control" name="originalUrl" id="originalUrl" placeholder="Input URL here"
+            value="{{originalUrl}}">
+        </div>
+  
+        {{#if randomUrl}}
+        <div class="form-group text-center">
+          <h3>Shortened URL:</h3>
+          <a href="{{originalUrl}}" class="" id="randomUrl">{{randomUrl}}</a>
+        </div>
+        {{/if}}
+        
+        {{!-- button --}}
+        <div class="row justify-content-center">
+          <button type="submit" class="btn mr-2 btn-primary">Shorten</button>
+          <a href="/" class="btn mr-2 btn-outline-primary">back</a>
+          {{#if randomUrl}}
+          <button type="button" class="btn mr-2 btn-success" id="copyBtn">Copy</button>
+          {{/if}}
+        </div>
+        
+      </form>
+    </div>
   </div>
 </div>
