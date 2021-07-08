@@ -22,20 +22,4 @@ function generateRandomUrl() {
   return shortUrl = basicUrl + randomText
 }
 
-// db.once('open', () => {
-//   URL.create(
-//     {
-//       originalUrl: basicUrl,
-//       shortenUrl: generateRandomUrl()
-//     }
-//   )
-//     .then(() => {
-//       console.log('Insert categories done!')
-//       return db.close()
-//     })
-//     .then(() => {
-//       console.log('Database connection close.')
-//     })
-// })
-
 module.exports.shortenUrl = generateRandomUrl()
