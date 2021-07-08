@@ -6,7 +6,7 @@ const urlSchema = new Schema ({
     type: String,
     required: true
   },
-  shortenUrl: {
+  randomUrl: {
     type: String,
     required: true
   }
