@@ -13,6 +13,7 @@ const allCollection = (lowerCaseLetters + upperCaseLetters + numbers).split('')
 
 let randomText = ''
 let randomIndex = 0
+let shortUrl = ''
 
 function generateRandomUrl() {
   for (let i = 0; i < shortUrlLength; i++) {
@@ -21,5 +22,22 @@ function generateRandomUrl() {
   }
   return shortUrl = basicUrl + randomText
 }
+
+// 無法存取 uniqueUrl
+// let uniqueUrl= ''
+// function unique(){
+//   URL.find({ randomUrl: shortUrl }).lean()
+//     .then( record => {
+//       if (record === 0) {
+//         uniqueUrl = shortUrl
+//         console.log(uniqueUrl)
+//       }else {
+//         uniqueUrl = generateRandomUrl()
+//         console.log(`${uniqueUrl} is unique!`)
+//       }
+//     })
+//     .catch(error => console.log(error))
+//   return uniqueUrl
+// }
 
 module.exports.shortenUrl = generateRandomUrl()

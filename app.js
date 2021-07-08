@@ -26,7 +26,6 @@ app.post('/', (req, res) => {
   const urlResult = {
     originalUrl, randomUrl
   }
-  // console.log(urlResult)
   URL.create(urlResult)
     .then(() => {
       res.render('index', { originalUrl, randomUrl})
