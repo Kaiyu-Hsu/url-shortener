@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const input = req.body.input
   let randomUrl = generateShortUrl()
-  if( !input ) {
+  if (!input) {
     res.redirect('/')
     return
   }
@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
       while (allURLs.map(files => files.randomUrl).includes(randomUrl)) {
         randomUrl = generateShortUrl()
       }
-      
+
       URL.create({ url: input, randomUrl })
         .then(() => {
           console.log('成功產生新網址!')
@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
         })
         .catch(error => console.log(error))
     })
-    .catch(error => console.log(error))
+    .catch (error => console.log(error))
   
 })
 
