@@ -5,7 +5,7 @@ function checkShortUrl(res, randomUrl, Input, basicUrl) {
     URL.findOne({ randomUrl })
       .then( other => {
         if( !other ) {
-          URL.create({ url: Input, randomUrl})
+          URL.create({ resultUrl: Input, randomUrl})
             .then(() => {
               console.log('成功產生新網址!')
               let value = `${basicUrl}${randomUrl}`
