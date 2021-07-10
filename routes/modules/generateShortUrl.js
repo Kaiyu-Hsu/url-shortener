@@ -19,4 +19,4 @@ function generateRandomUrl() {
   return shortUrl += randomText
 }
 
-module.exports = generateRandomUrl()
+module.exports = generateRandomUrl
