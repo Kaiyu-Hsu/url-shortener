@@ -43,6 +43,15 @@
         <div class="row justify-content-center">
           <button type="submit" class="btn mr-2 btn-primary">Shorten</button>
           <a href="/" class="btn mr-2 btn-outline-primary">back</a>
+          
+          {{#if exitUrl}}
+          <button type="button" class="btn mr-2 btn-success" data-toggle="modal" data-target="#exampleModal"
+            id="copyBtn">Copy</button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          </div>
+          {{/if}}
+
           {{#if randomUrl}}
           <button type="button" class="btn mr-2 btn-success" data-toggle="modal" data-target="#exampleModal" id="copyBtn">Copy</button>
           <!-- Modal -->

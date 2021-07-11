@@ -13,26 +13,32 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const input = req.body.input
   let randomUrl = generateShortUrl()
-  if (!input) {
-    res.redirect('/')
-    return
-  }
 
-  URL.find()
-    .then( allURLs => {
-      while (allURLs.map(files => files.randomUrl).includes(randomUrl)) {
-        randomUrl = generateShortUrl()
+  URL.findOne({ url: input })
+    .then(eachUrl => {
+      if (eachUrl) {
+        let exitUrl = true
+        let value = `${basicUrl}${eachUrl.randomUrl}`
+        res.render('index', { exitUrl, url: input, value })
+        return
       }
 
-      URL.create({ url: input, randomUrl })
-        .then(() => {
-          console.log('成功產生新網址!')
-          return (res.render('index', { url: input, basicUrl, randomUrl }))
+      URL.find()
+        .then(allURLs => {
+          while (allURLs.map(r => r.randomUrl).includes(randomUrl)) {
+            randomUrl = generateShortUrl()
+          }
+          URL.create({ url: input, randomUrl })
+            .then(() => {
+              console.log('成功產生新網址!')
+              console.log(randomUrl)
+              return (res.render('index', { url: input, basicUrl, randomUrl }))
+            })
+            .catch(error => console.log(error))
         })
-        .catch(error => console.log(error))
     })
-    .catch (error => console.log(error))
-  
+    .catch(error => console.log(error))
 })
+
 
 module.exports = router
