@@ -12,13 +12,14 @@ router.get('/', (req, res) => {
 // post
 router.post('/', (req, res) => {
   const input = req.body.input
+  console.log(input)
   let randomUrl = generateShortUrl()
 
   URL.findOne({ url: input })
-    .then(eachUrl => {
-      if (eachUrl) {
+    .then(urlSchema => {
+      if (urlSchema) {
         let exitUrl = true
-        let value = `${basicUrl}${eachUrl.randomUrl}`
+        let value = `${basicUrl}${urlSchema.randomUrl}`
         res.render('index', { exitUrl, url: input, value })
         return
       }
